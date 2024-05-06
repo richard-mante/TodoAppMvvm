@@ -1,0 +1,38 @@
+﻿@page "/todo"
+@using TodoAppMvvm.Pages.Todo.Models
+<h1 style="text-align:center;">TodoComponent</h1>
+
+
+<EditForm Model="@TodoContext" OnValidSubmit="@OnValidSubmit">
+
+    <div>
+        <label> Todo Name</label>
+        <InputText @bind-Value="TodoContext.Name" />
+    </div>
+
+    <div>
+        <label> Todo Task TimeSpan</label>
+        <InputDate @bind-Value="TodoContext.TimeSpan" />
+    </div>
+
+    <div>
+        <label> Todo Description</label>
+        <InputTextArea @bind-Value="TodoContext.Description" />
+    </div>
+
+    <button type="submit">Submit</button>
+</EditForm>
+
+
+
+@code {
+    private TodoModel TodoContext = new(){TimeSpan = DateTime.Now};
+
+    
+
+    public void  OnValidSubmit()
+    {
+    }
+
+
+}
